@@ -17,7 +17,7 @@ namespace Assets.Code.States
 		private int xDiv = 10;
 		private int yDiv = 1000000;
 		private int zDiv = 1000;
-
+		private int scale = 10;
 		private PlayerControl controller; 
 		private string fileDirectory = ".\\Assets\\PopulationData\\WDIDumpOneClean02.csv";
 		//private string fileDirectory = "C:\\Unity Projects\\VizTest2\\Assets\\PopulationData\\WDIDumpOneClean02.csv";
@@ -96,8 +96,10 @@ namespace Assets.Code.States
 			ReadFile(directory);
 			//access by 
 			//string myData = filedata[4][3]; // Row 5 column 4
-			
-			
+			String labelx = filedata [0][1];
+			String labely = filedata [0][2];
+			String labelz = filedata [0][3];
+
 			//!!!!!!!!!!!!!!!!!!!!!!!!!!!!! i < filedata.count
 			float x, y, z, r, w;
 			for (int i =1; i<filedata.Count; i++) {
@@ -107,6 +109,7 @@ namespace Assets.Code.States
 				
 				
 				if(filedata[i][1] != "" || filedata[i][2] !="" || filedata[i][3] !=""){
+					String objectLabel = filedata [i][0];
 					x = float.Parse (filedata[i][1])/xDiv;
 					y = float.Parse (filedata[i][2])/yDiv;
 					z = float.Parse (filedata[i][3])/zDiv;
@@ -119,14 +122,14 @@ namespace Assets.Code.States
 
 					cube.AddComponent<Rigidbody>();
 					cube.transform.position = new Vector3(x, y, z);
-					cube.transform.localScale = new Vector3(100, 100, 100);
+					cube.transform.localScale = new Vector3(scale, scale, scale);
 
 
 					cube.rigidbody.AddTorque(r ,0 ,0);
-					cube.rigidbody.isKinematic = true;
+					//cube.rigidbody.isKinematic = true;
 					cube.rigidbody.useGravity = false;
-					cube.rigidbody.maxAngularVelocity = 0;
-
+					//cube.rigidbody.maxAngularVelocity = 0;
+					cube.rigidbody.angularDrag = 0;
 					//cube.transform.localRotation = new Vector3(r,0,0);
 					//cube.transform.rotation = Quaternion.AngleAxis(r,new Vector3(1,0,0) );
 					//cube.transform.rotation = Quaternion.AngleAxis(w,new Vector3(0,1,0) );
@@ -191,7 +194,7 @@ namespace Assets.Code.States
 			*/
 
 			// Actions menu
-			GUI.Box(new Rect(10,10,100,180), "Actions"); 
+			GUI.Box(new Rect(10,10,100,60), "Actions"); 
 			if(GUI.Button(new Rect(20,40,80,20), "Import"))
 				import(fileDirectory); 
 			/*

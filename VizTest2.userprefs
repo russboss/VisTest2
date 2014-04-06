@@ -1,9 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Code\Scripts\MoveForward.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\FixedRotation.cs">
     <Files>
-      <File FileName="Assets\Code\Scripts\MoveForward.cs" Line="28" Column="3" />
-      <File FileName="Assets\Code\States\SetupState.cs" Line="96" Column="43" />
+      <File FileName="Assets\Code\States\PlayStateScene1_1.cs" Line="20" Column="39" />
+      <File FileName="Assets\Code\States\SetupState.cs" Line="112" Column="43" />
+      <File FileName="Assets\Code\States\FlyCamera.cs" Line="2" Column="1" />
+      <File FileName="Assets\FixedRotation.cs" Line="22" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

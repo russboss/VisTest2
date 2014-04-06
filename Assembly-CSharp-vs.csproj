@@ -66,6 +66,7 @@
      <Compile Include="Assets\Code\States\SetupState.cs" />
      <Compile Include="Assets\Code\States\WonStateScene1.cs" />
      <Compile Include="Assets\Code\States\WonStateScene2.cs" />
+     <Compile Include="Assets\FixedRotation.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Background.shader" />
