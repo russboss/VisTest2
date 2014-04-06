@@ -25,7 +25,7 @@ public class PlayerControl : MonoBehaviour
 	void FixedUpdate() 
 	{ 
 		float foreAndAft = Input.GetAxis ("Vertical") * speed; 
-		float rotation = Input.GetAxis ("Horizontal") * rotationSpeed; rigidbody.AddRelativeForce (0, 0, foreAndAft); 
+		//float rotation = Input.GetAxis ("Horizontal") * rotationSpeed; rigidbody.AddRelativeForce (0, 0, foreAndAft); 
 		// rigidbody.AddTorque (0, rotation, 0); 
 	} 
 	

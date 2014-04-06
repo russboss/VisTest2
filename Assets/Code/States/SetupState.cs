@@ -12,7 +12,7 @@ namespace Assets.Code.States
 	public class SetupState : IStateBase 
 	{ 
 		private StateManager manager; 
-		private GameObject player; 
+		private GameObject mainCamera; 
 		private GameObject newCube;
 		private int xDiv = 10;
 		private int yDiv = 1000000;
@@ -38,9 +38,9 @@ namespace Assets.Code.States
 			manager = managerRef; 
 			if(Application.loadedLevelName != "Scene0") 
 				Application.LoadLevel("Scene0"); 
-			player = GameObject.Find("Player"); 
-			controller = player.GetComponent <PlayerControl>(); 
-
+			//player = GameObject.Find("Player"); 
+			//controller = player.GetComponent <PlayerControl>(); 
+			mainCamera = GameObject.Find("Main Camera");
 			// Import data
 			newCube = GameObject.Find("Cube");
 
@@ -82,8 +82,10 @@ namespace Assets.Code.States
 
 		public void StateUpdate () 
 		{ 
+			/*
 			if(! Input.GetButton("Jump")) 
 				controller.transform.Rotate(0, controller.setupSpinSpeed * Time.deltaTime, 0); 
+				*/
 		} 
 		
 		public void StateFixedUpdate()
@@ -109,7 +111,7 @@ namespace Assets.Code.States
 					y = float.Parse (filedata[i][2])/yDiv;
 					z = float.Parse (filedata[i][3])/zDiv;
 					r = float.Parse (filedata[i][4]);
-					w = float.Parse (filedata[i][5]);
+					//w = float.Parse (filedata[i][5]);
 					// GameObject temp= (GameObject)GameObject.Instantiate(pointPrefab,new Vector3(x,y,z), Quaternion.identity);
 					//GameObject temp= (GameObject)GameObject.Instantiate(newCube, new Vector3(x,y,z), Quaternion.identity);
 					
@@ -120,7 +122,7 @@ namespace Assets.Code.States
 					cube.transform.localScale = new Vector3(100, 100, 100);
 
 
-					cube.rigidbody.AddTorque(r ,w ,0);
+					cube.rigidbody.AddTorque(r ,0 ,0);
 					cube.rigidbody.isKinematic = true;
 					cube.rigidbody.useGravity = false;
 					cube.rigidbody.maxAngularVelocity = 0;
@@ -142,12 +144,15 @@ namespace Assets.Code.States
 					points.Add(cube);
 				}
 				
-				
+
 			}
 			//
 			averageCoordinate = averageDiv(filedata.Count);
-			
-			player.transform.position += averageCoordinate - new Vector3 (50, 50, 50);
+
+
+
+
+			mainCamera.transform.position += averageCoordinate - new Vector3 (50, 50, 50);
 			
 			//player.transform.position += points [10].transform.position - new Vector3 (10, 30, 30);;
 			
@@ -189,7 +194,7 @@ namespace Assets.Code.States
 			GUI.Box(new Rect(10,10,100,180), "Actions"); 
 			if(GUI.Button(new Rect(20,40,80,20), "Import"))
 				import(fileDirectory); 
-			
+			/*
 			if(GUI.Button(new Rect(20,70,80,20), "Visualize")) 
 				controller.PickedColor(controller.blue); 
 			
@@ -201,7 +206,7 @@ namespace Assets.Code.States
 			
 			if(GUI.Button(new Rect(20,160,80,20), "Report")) 
 				controller.PickedColor(controller.white);
-
+			*/
 			/* // Player color selection menu
 			GUI.Box(new Rect(10,200,100,180), "Player Color"); 
 			if(GUI.Button(new Rect(20,230,80,20), "Red"))
@@ -226,12 +231,14 @@ namespace Assets.Code.States
 			*/
 
 			// Bottom center label
+			/*
 			if (GUI.Button(new Rect(Screen.width/2 -100, Screen.height - 50, 200, 40), 
 		               "Click Here or Press 'P' to Start") || Input.GetKeyUp(KeyCode.P)) 
 			{ 
 				manager.SwitchState (new PlayStateScene1_1 (manager));
-				player.transform.position = new Vector3(50, .5f, 40); 
+				//player.transform.position = new Vector3(50, .5f, 40); 
 			} 
+			*/
 		} 
 	} 
 }
