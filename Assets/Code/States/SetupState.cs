@@ -17,7 +17,7 @@ namespace Assets.Code.States
 		private int xDiv = 10;
 		private int yDiv = 1000000;
 		private int zDiv = 1000;
-		private int scale = 10;
+		private int scale = 20;
 		private PlayerControl controller; 
 		private string fileDirectory = ".\\Assets\\PopulationData\\WDIDumpOneClean02.csv";
 		//private string fileDirectory = "C:\\Unity Projects\\VizTest2\\Assets\\PopulationData\\WDIDumpOneClean02.csv";
