@@ -14,7 +14,9 @@ namespace Assets.Code.States
 		private StateManager manager; 
 		private GameObject player; 
 		private GameObject newCube;
-
+		private int xDiv = 10;
+		private int yDiv = 1000000;
+		private int zDiv = 1000;
 
 		private PlayerControl controller; 
 		private string fileDirectory = ".\\Assets\\PopulationData\\WDIDumpOneClean02.csv";
@@ -95,6 +97,7 @@ namespace Assets.Code.States
 			
 			
 			//!!!!!!!!!!!!!!!!!!!!!!!!!!!!! i < filedata.count
+			float x, y, z, r, w;
 			for (int i =1; i<filedata.Count; i++) {
 				
 				Debug.Log("["+i+"] " + filedata[i][0] + "," + filedata[i][1]+","+ filedata[i][2]+","+ filedata[i][3]);
@@ -102,18 +105,32 @@ namespace Assets.Code.States
 				
 				
 				if(filedata[i][1] != "" || filedata[i][2] !="" || filedata[i][3] !=""){
-					float x = float.Parse (filedata[i][1]) - 1700;
-					float y = float.Parse (filedata[i][2]);
-					float z = float.Parse (filedata[i][3]);
+					x = float.Parse (filedata[i][1])/xDiv;
+					y = float.Parse (filedata[i][2])/yDiv;
+					z = float.Parse (filedata[i][3])/zDiv;
+					r = float.Parse (filedata[i][4]);
+					w = float.Parse (filedata[i][5]);
 					// GameObject temp= (GameObject)GameObject.Instantiate(pointPrefab,new Vector3(x,y,z), Quaternion.identity);
 					//GameObject temp= (GameObject)GameObject.Instantiate(newCube, new Vector3(x,y,z), Quaternion.identity);
 					
-					GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+					GameObject cube = (GameObject)GameObject.Instantiate(newCube, new Vector3(x,y,z), Quaternion.identity);
+
 					cube.AddComponent<Rigidbody>();
 					cube.transform.position = new Vector3(x, y, z);
 					cube.transform.localScale = new Vector3(100, 100, 100);
+
+
+					cube.rigidbody.AddTorque(r ,w ,0);
+					cube.rigidbody.isKinematic = true;
 					cube.rigidbody.useGravity = false;
-					
+					cube.rigidbody.maxAngularVelocity = 0;
+
+					//cube.transform.localRotation = new Vector3(r,0,0);
+					//cube.transform.rotation = Quaternion.AngleAxis(r,new Vector3(1,0,0) );
+					//cube.transform.rotation = Quaternion.AngleAxis(w,new Vector3(0,1,0) );
+					//cube.transform.Rotate(new Vector3(r,0,0));
+
+
 					// Tag to new cube
 					// cube.tag = (String)filedata[i][0];
 					
