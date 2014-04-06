@@ -17,7 +17,8 @@ namespace Assets.Code.States
 
 
 		private PlayerControl controller; 
-		private string fileDirectory = "C:\\Users\\Public\\Documents\\Unity Projects\\VizTest2";
+		private string fileDirectory = ".\\Assets\\PopulationData\\WDIDumpOneClean02.csv";
+		//private string fileDirectory = "C:\\Unity Projects\\VizTest2\\Assets\\PopulationData\\WDIDumpOneClean02.csv";
 		//private string fileDirectory = "C:\\Unity\\VizTest2\\Assets\\PopulationData\\WDIDumpOneClean02.csv";
 		private List<List<string>> filedata = new  List<List<string>>();
 
