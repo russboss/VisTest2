@@ -17,7 +17,7 @@ Platform assembly: C:\Unity Projects\VizTest2\VizTest2_Data\Managed\Assembly-Uni
 Loading C:\Unity Projects\VizTest2\VizTest2_Data\Managed\Assembly-UnityScript-firstpass.dll into Unity Child Domain
 Platform assembly: C:\Unity Projects\VizTest2\VizTest2_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
 Loading C:\Unity Projects\VizTest2\VizTest2_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
-- Completed reload, in  0.190 seconds
+- Completed reload, in  0.164 seconds
 desktop: 1280x800 60Hz; virtual: 1280x800 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
