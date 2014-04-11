@@ -17,7 +17,7 @@ namespace Assets.Code.States
 		private int xDiv = 10;
 		private int yDiv = 1000000;
 		private int zDiv = 1000;
-		private int scale = 20;
+		private int scale = 40;
 		private PlayerControl controller; 
 		private string fileDirectory = ".\\Assets\\PopulationData\\WDIDumpOneClean02.csv";
 		//private string fileDirectory = "C:\\Unity Projects\\VizTest2\\Assets\\PopulationData\\WDIDumpOneClean02.csv";
@@ -41,6 +41,7 @@ namespace Assets.Code.States
 			//player = GameObject.Find("Player"); 
 			//controller = player.GetComponent <PlayerControl>(); 
 			mainCamera = GameObject.Find("Main Camera");
+			//mainCamera = GameObject.Find("OVRPlayerController");
 			// Import data
 			newCube = GameObject.Find("Cube");
 
@@ -48,6 +49,7 @@ namespace Assets.Code.States
 			
 			foreach(GameObject camera in manager.gameDataRef.cameras) 
 			{ 
+				//if(camera.name != "OVRPlayerController") 
 				if(camera.name != "Main Camera") 
 				{
 					if (camera != null)
@@ -59,6 +61,8 @@ namespace Assets.Code.States
 						camera.SetActive(true);
 				}
 			} 
+			import(fileDirectory); 
+
 
 		} 
 
@@ -194,9 +198,9 @@ namespace Assets.Code.States
 			*/
 
 			// Actions menu
-			GUI.Box(new Rect(10,10,100,60), "Actions"); 
-			if(GUI.Button(new Rect(20,40,80,20), "Import"))
-				import(fileDirectory); 
+			//GUI.Box(new Rect(10,10,100,60), "Actions"); 
+			//if(GUI.Button(new Rect(20,40,80,20), "Import"))
+				//import(fileDirectory); 
 			/*
 			if(GUI.Button(new Rect(20,70,80,20), "Visualize")) 
 				controller.PickedColor(controller.blue); 
